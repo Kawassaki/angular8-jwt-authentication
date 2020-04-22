@@ -1,0 +1,43 @@
+<section>
+  <div>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <input
+        type="text"
+        name="name"
+        placeholder="Full name"
+        formControlName="name"
+      />
+      <span *ngIf="submitted && p.name.errors">
+        <h3 *ngIf="p.name.errors.required">Full name is required</h3>
+      </span>
+      <input
+        type="email"
+        name="email"
+        placeholder="E-mail"
+        formControlName="email"
+      />
+      <span *ngIf="submitted && p.email.errors">
+        <h3 *ngIf="p.email.errors.required">Email is required</h3>
+      </span>
+      <input
+        type="password"
+        name="oldPassword"
+        placeholder="Curremt password"
+        formControlName="oldPassword"
+      />
+      <input
+        type="password"
+        name="confirmPassword"
+        placeholder="New Password"
+        formControlName="confirmPassword"
+      />
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? "Loading..." : "Update profile" }}
+      </button>
+    </form>
+    <button (click)="logout()">
+      Logout
+    </button>
+  </div>
+</section>

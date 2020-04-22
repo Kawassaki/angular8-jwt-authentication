@@ -1,0 +1,35 @@
+<section>
+  <div>
+    <img src="./../../../assets/logo.svg" alt="Logo" />
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <input
+        type="email"
+        name="email"
+        placeholder="E-mail"
+        formControlName="email"
+      />
+      <span *ngIf="submitted && f.email.errors">
+        <h3 *ngIf="f.email.errors.required">
+          Email is required
+        </h3>
+      </span>
+      <input
+        type="password"
+        name="password"
+        placeholder="Sua senha"
+        formControlName="password"
+      />
+      <span *ngIf="submitted && f.password.errors">
+        <h3 *ngIf="f.password.errors.required">
+          Password is required
+        </h3>
+      </span>
+      <button type="submit" [disabled]="loading">
+        {{ loading ? "Carregando..." : "Criar conta" }}
+      </button>
+
+      <a href="/login"> Já tenho conta</a>
+    </form>
+  </div>
+</section>

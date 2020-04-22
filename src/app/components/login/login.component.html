@@ -1,0 +1,80 @@
+<section>
+  <div>
+    <img src="./../../../assets/logo.svg" alt="Logo" />
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <input
+        type="email"
+        name="email"
+        placeholder="E-mail"
+        formControlName="email"
+      />
+      <span *ngIf="submitted && formLogin.email.errors">
+        <h3 *ngIf="formLogin.email.errors.required">Email is required</h3>
+      </span>
+      <input
+        type="password"
+        name="password"
+        placeholder="Sua senha"
+        formControlName="password"
+      />
+      <span *ngIf="submitted && formLogin.password.errors">
+        <h3 *ngIf="formLogin.password.errors.required">Password is required</h3>
+      </span>
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? "Carregando..." : "Acessar" }}
+      </button>
+
+      <a href="/register"> Criar conta gratuita</a>
+    </form>
+  </div>
+</section>
+
+<!-- <div class="col-md-6 offset-md-3 mt-5">
+  <div class="alert alert-info">
+    Username: test<br />
+    Password: test
+  </div>
+  <div class="card">
+    <h4 class="card-header">Angular 8 JWT Login Example</h4>
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            formControlName="username"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && formLogin.username.errors }"
+          />
+          <div *ngIf="submitted && formLogin.username.errors" >
+            <div *ngIf="formLogin.username.errors.required">Username is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && formLogin.password.errors }"
+          />
+          <div *ngIf="submitted && formLogin.password.errors" >
+            <div *ngIf="formLogin.password.errors.required">Password is required</div>
+          </div>
+        </div>
+        <button [disabled]="loading" class="btn btn-primary">
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm mr-1"
+          ></span>
+          Login
+        </button>
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">
+          {{ error }}
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->

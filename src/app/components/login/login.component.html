@@ -3,6 +3,8 @@
     <img src="./../../../assets/logo.svg" alt="Logo" />
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <span>to test login enter user: test and password: test</span>
+
       <input
         type="email"
         name="email"
@@ -15,7 +17,7 @@
       <input
         type="password"
         name="password"
-        placeholder="Sua senha"
+        placeholder="Password"
         formControlName="password"
       />
       <span *ngIf="submitted && formLogin.password.errors">
@@ -23,10 +25,8 @@
       </span>
 
       <button type="submit" [disabled]="loading">
-        {{ loading ? "Carregando..." : "Acessar" }}
+        {{ loading ? "Loading..." : "Login" }}
       </button>
-
-      <a href="/register"> Criar conta gratuita</a>
     </form>
   </div>
 </section>
